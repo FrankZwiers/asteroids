@@ -5,7 +5,7 @@ from constants import *
 
 class Shot(CircleShape):
     def draw(self, screen):
-        pygame.draw.circle(screen, "white", self.position, SHOT_RADIUS, ASTEROID_DRAW_WIDTH)
+        pygame.draw.circle(screen, OBJECT_COLOR, self.position, SHOT_RADIUS, OBJECT_DRAW_WIDTH)
 
     def update(self, dt):
         self.position += self.velocity * dt
