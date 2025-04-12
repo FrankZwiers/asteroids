@@ -5,6 +5,10 @@ from constants import *
 from circleshape import CircleShape
 
 class Asteroid(CircleShape):
+    def __init__(self, x, y, radius):
+        super().__init__(x, y, radius)
+        self.__value = self.__calculate_value()
+
     def draw(self, screen):
         pygame.draw.circle(screen, OBJECT_COLOR, self.position, self.radius, OBJECT_DRAW_WIDTH)
 
@@ -22,3 +26,9 @@ class Asteroid(CircleShape):
 
         for velocity in velocities:
             Asteroid(self.position[0], self.position[1], new_radius).velocity = velocity * ASTEROID_SPLIT_SPEED_UP_FACTOR
+
+    def __calculate_value(self):
+        return 5 - self.radius / ASTEROID_MIN_RADIUS
+
+    def get_value(self):
+        return self.__value
