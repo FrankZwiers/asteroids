@@ -1,4 +1,7 @@
 import pygame
+import random
+import os
+
 from constants import *
 from player import Player
 from asteroid import Asteroid
@@ -8,6 +11,7 @@ from shot import Shot
 def main():
     pygame.init()
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+    image = pygame.transform.scale(load_background(), (SCREEN_WIDTH, SCREEN_HEIGHT))
     clock = pygame.time.Clock()
     dt = 0
 
@@ -32,7 +36,7 @@ def main():
             if event.type == pygame.QUIT:
                 return
 
-        screen.fill("black")
+        screen.blit(image, (0, 0))
 
         # Update groups
         for object in updatable:
@@ -53,6 +57,10 @@ def main():
 
         pygame.display.flip()
         dt = clock.tick(60) / 1000
+
+def load_background():
+    index = random.randint(0, len(BACKGROUNDS) -1)
+    return pygame.image.load(os.path.join(ROOT_DIR, "assets", "backgrounds", f"{BACKGROUNDS[index]}.jpeg")).convert()
 
 if __name__ == "__main__":
     main()

@@ -1,3 +1,5 @@
+import os
+
 SCREEN_WIDTH = 1280
 SCREEN_HEIGHT = 720
 
@@ -16,3 +18,7 @@ PLAYER_SHOOT_SPEED = 500
 PLAYER_SHOOT_COOLDOWN = 0.3
 
 SHOT_RADIUS = 5
+
+ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
+BACKGROUNDS = ["llamas", "capybaras"]
+OBJECT_COLOR = "black"
