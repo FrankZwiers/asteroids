@@ -7,7 +7,7 @@ class Scoreboard(GameObject):
     def __init__(self, font):
         super().__init__()
         self.font = font
-        self.__score = 0
+        self.reset()
 
     def draw(self, screen):
         score_text = self.font.render(f'Score: {self.__score:.0f}', True, OBJECT_COLOR)
@@ -15,3 +15,6 @@ class Scoreboard(GameObject):
 
     def modify_score(self, modifier: int):
         self.__score += modifier
+
+    def reset(self):
+        self.__score = 0
