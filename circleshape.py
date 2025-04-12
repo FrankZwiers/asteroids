@@ -16,4 +16,4 @@ class CircleShape(GameObject):
         pass
 
     def detect_collision(self, other):
-        return self.position.distance_to(other.position) <= self.radius + other.radius
+        return self.position.distance_to(other.position) < self.radius + other.radius
